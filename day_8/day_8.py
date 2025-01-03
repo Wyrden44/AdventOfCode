@@ -29,22 +29,22 @@ for antenna in list(antenna_positions):
             x_dis = x2 - x
             y_dis = y2 - y
 
-            i = 0
+            i = 1
             r1 = False
             r2 = False
             while not r1 or not r2:
                 new_x = x - i * x_dis
                 new_y = y - i * y_dis
 
-                new_x2 = x2 + i * x_dis
-                new_y2 = y2 + i * y_dis
+                new_x2 = x + i * x_dis
+                new_y2 = y + i * y_dis
 
-                if 0 <= new_x <= len(content) and 0 <= new_y <= len(content[0]):
-                    antenna_locations.add((x - x_dis, y - y_dis))
+                if 0 <= new_x < len(content) and 0 <= new_y < len(content[0]):
+                    antenna_locations.add((new_x, new_y))
                 else:
                     r1 = True
-                if 0 <= new_x2 <= len(content) and 0 <= new_y2 <= len(content[0]):
-                    antenna_locations.add((x2 + x_dis, y2 + y_dis))
+                if 0 <= new_x2 < len(content) and 0 <= new_y2 < len(content[0]):
+                    antenna_locations.add((new_x2, new_y2))
                 else:
                     r2 = True
 
