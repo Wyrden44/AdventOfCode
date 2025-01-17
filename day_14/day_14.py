@@ -57,8 +57,12 @@ data = best_data
 
 field = [["." for i in range(field_size_y)] for j in range(field_size_x)]
 
+
 for robot in data:
     field[robot[0]][robot[1]] = "1" if field[robot[0]][robot[1]] == "." else "2"
+
+for line in list(zip(*field)):
+    print(" ".join(line))
 
 
 quadrants = {k: 0 for k in range(4)}
